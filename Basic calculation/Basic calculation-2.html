@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic calculation 2</title>
+   
+</head>
+<body>
+    <h1 id="ok"></h1>
+    <h2 id="second"></h2>
+    <script type="text/javascript">
+       var a=parseInt(prompt("Enter First number"));
+       var b=parseInt(prompt("Enter Second number"));
+       var c;
+    //    c=a;
+    //    a=b;
+    //    b=c;
+    b=a+b;
+    a=b-a;
+    b=b-a;
+       document.getElementById("ok").innerHTML="after swap : First value = "+a;
+       document.getElementById("second").innerHTML="after swap :  Second Value = "+b;
+    </script>
+</body>
+</html>

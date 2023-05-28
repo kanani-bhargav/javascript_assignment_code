@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>loop</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // 10 number sum using while loop
+      let val = 1,
+        sum = 0;
+
+      while (val <= 10) {
+        sum += val;
+        console.log(val);
+        val++;
+      }
+      console.log("with while loop sum : ", sum); //sum = 55
+
+      // 10 number sum using for loop
+      let totalSum = 0;
+      for (let x = 10; x >= 1; x--) {
+        console.log(x);
+        totalSum += x;
+      }
+      console.log("with for loop sum : ", totalSum); // sum = 55
+
+      //using while loop Multiplication table
+      let tableNum = parseInt(prompt("Enter value form Multiplication table")); // take input from user
+      let count = 1;
+      while (count <= 10) {
+        console.log(tableNum + " X " + count + " = " + tableNum * count);
+        count++;
+      }
+      console.log(" "); //use for space in console
+
+      //using for loop Multiplication table
+      let multiNum = 5; // directly assign value
+      for (let count = 1; count <= 10; count++) {
+        console.log(multiNum + " X " + count + " = " + multiNum * count);
+      }
+
+      console.log(" "); //use for space in console
+
+      //2^8 using while loop
+      let powerNum = 1,
+        exponent = 8,
+        baseNum = 2,
+        input = 1;
+      while (input <= exponent) {
+        powerNum *= baseNum; // 1=1*2 2=2*2 4=4*2 8=8*2 16=16*2 32=32*2 64=64*2 256
+        input++;
+      }
+      console.log(powerNum);
+      //2^8 using for loop
+      let powNum = 1,
+        expo = 8,
+        base = 2;
+
+      for (let x = 1; x <= expo; x++) {
+        powNum *= base; // 1=1*2 2=2*2 4=4*2 8=8*2 16=16*2 32=32*2 64=64*2 256
+      }
+      console.log(powNum);
+
+      console.log(" "); //use for space in console
+
+       //1,2,4,8,16,32 using while loop
+       let sequence  = 1,
+        basicVal = 1,
+        seqVal = 1;
+       while(seqVal <= 6) {
+        console.log(basicVal);
+        basicVal *= 2; // 1=1*2 2=2*2 4=4*2 8=8*2 16=16*2 32
+        seqVal++;
+      }
+
+      console.log(" "); //use for space in console
+
+      let baseVal=1;
+      for(let x=1;x<=6;x++){
+        console.log(baseVal);
+        baseVal *= 2;
+      }
+    </script>
+  </body>
+</html>

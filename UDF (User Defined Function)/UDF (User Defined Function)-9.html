@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UDF (User Defined Function)-9</title>
+  </head>
+  <body>
+    <h1 id="ok"></h1>
+
+    <script type="text/javascript">
+      //  simple
+      //   function checkNumber() {
+      //     var a = parseInt(prompt("Enter number"));
+      //     var b = parseInt(prompt("Enter number"));
+      //     var c = parseInt(prompt("Enter number"));
+
+      //     if (a == b && c == a) {
+      //       document.getElementById("ok").innerHTML = " all are same";
+      //     } else {
+      //       if (a > b) {
+      //         if (a > c) {
+      //           document.getElementById("ok").innerHTML = a + " is Greter";
+      //         } else {
+      //           document.getElementById("ok").innerHTML = c + " is Greter";
+      //         }
+      //       } else {
+      //         if (b > c) {
+      //           document.getElementById("ok").innerHTML = b + " is Greter";
+      //         } else {
+      //           document.getElementById("ok").innerHTML = c + " is Greter";
+      //         }
+      //       }
+      //     }
+      //   }
+      //   checkNumber();
+
+      // no return with parameter
+
+      //   function checkNumber(x,y,z) {
+
+      //     if (a == b && c == a) {
+      //       document.getElementById("ok").innerHTML = " all are same";
+      //     } else {
+      //       if (a > b) {
+      //         if (a > c) {
+      //           document.getElementById("ok").innerHTML = a + " is Greter";
+      //         } else {
+      //           document.getElementById("ok").innerHTML = c + " is Greter";
+      //         }
+      //       } else {
+      //         if (b > c) {
+      //           document.getElementById("ok").innerHTML = b + " is Greter";
+      //         } else {
+      //           document.getElementById("ok").innerHTML = c + " is Greter";
+      //         }
+      //       }
+      //     }
+      //   }
+      //   var a = parseInt(prompt("Enter number"));
+      //     var b = parseInt(prompt("Enter number"));
+      //     var c = parseInt(prompt("Enter number"));
+      //   checkNumber(a,b,c);
+
+      // return with no parameter
+      //   function checkNumber() {
+      //     var a = parseInt(prompt("Enter number"));
+      //     var b = parseInt(prompt("Enter number"));
+      //     var c = parseInt(prompt("Enter number"));
+      //     if (a == b && c == a) {
+      //       return " all are same";
+      //     } else {
+      //       if (a > b) {
+      //         if (a > c) {
+      //           return a+ " is Greter";
+      //         } else {
+      //           return c+ " is Greter";
+      //         }
+      //       } else {
+      //         if (b > c) {
+      //           return b+ " is Greter";
+      //         } else {
+      //           return c+ " is Greter";
+      //         }
+      //       }
+      //     }
+      //   }
+      //   document.getElementById("ok").innerHTML = checkNumber();
+
+      // return with no parameter
+      function checkNumber(x, y, z) {
+        if (a == b && c == a) {
+          return " all are same";
+        } else {
+          if (a > b) {
+            if (a > c) {
+              return a + " is Greter";
+            } else {
+              return c + " is Greter";
+            }
+          } else {
+            if (b > c) {
+              return b + " is Greter";
+            } else {
+              return c + " is Greter";
+            }
+          }
+        }
+      }
+      var a = parseInt(prompt("Enter number"));
+      var b = parseInt(prompt("Enter number"));
+      var c = parseInt(prompt("Enter number"));
+      document.getElementById("ok").innerHTML = checkNumber(a, b, c);
+    </script>
+  </body>
+</html>

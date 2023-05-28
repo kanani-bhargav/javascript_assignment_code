@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>filter project</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row my-5 justify-content-between">
+        <div class="col">
+          <button
+            type="button"
+            onclick="viewAllRecord()"
+            class="btn btn-success"
+          >
+            All
+          </button>
+        </div>
+        <div class="btn-group col">
+            <button
+              type="button"
+              onmousedown="TataData()"
+              class="btn btn-primary"
+            >
+              Tata
+            </button>
+            <button type="button" onmousedown="MarutiData()" class="btn btn-primary">
+                Maruti
+            </button>
+            <button type="button" onmousedown="HyundaiData()" class="btn btn-primary">
+                Hyundai
+            </button>
+          </div>
+        <div class="btn-group col">
+          <button
+            type="button"
+            onclick="hatchbackData()"
+            class="btn btn-secondary"
+          >
+            Hatchback
+          </button>
+          <button type="button" onclick="sedanData()" class="btn btn-secondary">
+            Sedan
+          </button>
+          <button type="button" onclick="suvData()" class="btn btn-secondary">
+            SUV
+          </button>
+          <button type="button" onclick="coupeData()" class="btn btn-secondary">
+            Coupe
+          </button>
+          <button
+            type="button"
+            onclick="convertibleData()"
+            class="btn btn-secondary"
+          >
+            Convertible
+          </button>
+        </div>
+      </div>
+
+      <div class="row" id="allrecord"></div>
+    </div>
+
+    <script type="text/javascript">
+      let data = [
+        {
+          name: "Maruti Suzuki Swift",
+          price: 599000,
+          company:"Maruti",
+          image:
+            "https://imgd.aeplcdn.com/1056x594/n/cw/ec/54399/exterior-right-front-three-quarter-10.jpeg?q=75&wm=1",
+          category: "Hatchback",
+        },
+        {
+          name: "Tata Tiago",
+          price: 553000,
+          company:"Tata",
+          image:
+            "https://imgd.aeplcdn.com/664x374/n/cw/ec/39345/tiago-exterior-right-front-three-quarter-25.jpeg?isig=0&q=75",
+          category: "Hatchback",
+        },
+        {
+          name: "Hyundai Grand ilO Nios",
+          price: 573000,
+          company:"Hyundai",
+          image:
+            "https://imgd.aeplcdn.com/664x374/n/cw/ec/136183/grand-i10-nios-facelift-exterior-right-front-three-quarter-2.jpeg?isig=0&q=75",
+          category: "Hatchback",
+        },
+        {
+          name: "Toyota Glanza",
+          price: 671000,
+          company:"Toyota",
+          image:
+            "https://imgd.aeplcdn.com/1056x594/n/cw/ec/112839/glanza-facelift-exterior-right-front-three-quarter.jpeg?isig=0&q=75&wm=1",
+          category: "Hatchback",
+        },
+        {
+          name: "Maruti Suzuki Baleno",
+          price: 661000,
+          company:"Maruti",
+          image:
+            "https://imgd.aeplcdn.com/664x374/n/cw/ec/102663/baleno-exterior-right-front-three-quarter-2.jpeg?isig=0&q=75",
+          category: "Hatchback",
+        },
+        {
+          name: "Maruti Suzuki Ciaz",
+          price: 930000,
+          company:"Maruti",
+          image:
+            "https://imgd.aeplcdn.com/664x374/n/cw/ec/48542/ciaz-exterior-right-front-three-quarter-2.jpeg?q=75",
+          category: "Sedan",
+        },
+        {
+          name: "Hyundai Verna",
+          price: 1090000,
+          company:"Hyundai",
+          image:
+            "https://imgd.aeplcdn.com/664x374/n/cw/ec/121943/verna-facelift-exterior-right-front-three-quarter.jpeg?isig=0&q=75",
+          category: "Sedan",
+        },
+        {
+          name: "Toyota Camry",
+          price: 4571000,
+          company:"Toyota",
+          image:
+            "https://imgd.aeplcdn.com/664x374/n/cw/ec/110233/2022-camry-exterior-right-front-three-quarter.jpeg?isig=0&q=75",
+          category: "Sedan",
+        },
+        {
+          name: "Honda City Hybrid eHEV",
+          price: 1892000,
+          company:"Honda",
+          image:
+            "https://imgd.aeplcdn.com/664x374/n/cw/ec/143275/city-hybrid-ehev-exterior-right-front-three-quarter.jpeg?isig=0&q=75",
+          category: "Sedan",
+        },
+        {
+          name: "Skoda Slavia",
+          price: 1139000,
+          company:"Skoda",
+          image:
+            "https://imgd.aeplcdn.com/664x374/n/cw/ec/144999/slavia-exterior-right-front-three-quarter.jpeg?isig=0&q=75",
+          category: "Sedan",
+        },
+        {
+          name: "Maruti Fronx",
+          price: 1314000,
+          company:"Maruti",
+          image:
+            "https://imgd.aeplcdn.com/664x374/n/cw/ec/130591/fronx-exterior-right-front-three-quarter-4.jpeg?isig=0&q=75",
+          category: "SUV",
+        },
+        {
+          name: "Tata Punch",
+          price: 947000,
+          company:"Tata",
+          image:
+            "https://imgd.aeplcdn.com/664x374/n/cw/ec/39015/punch-exterior-right-front-three-quarter-2.jpeg?isig=0&q=75",
+          category: "SUV",
+        },
+        {
+          name: "Hyundai Venue",
+          price: 1318000,
+          company:"Hyundai",
+          image:
+            "https://imgd.aeplcdn.com/664x374/n/cw/ec/141113/venue-exterior-right-front-three-quarter.jpeg?isig=0&q=75",
+          category: "SUV",
+        },
+        {
+          name: "Mahindra XUV400x",
+          price: 1599000,
+          company:"Mahindra",
+          image:
+            "https://imgd.aeplcdn.com/664x374/n/cw/ec/45278/xuv400-exterior-right-front-three-quarter-4.jpeg?isig=0&q=75",
+          category: "SUV",
+        },
+        {
+          name: "Toyota Urban Cruiser Hyryder",
+          price: 1949000,
+          company:"Toyota",
+          image:
+            "https://imgd-ct.aeplcdn.com/664x415/n/cw/ec/124093/urban-cruiser-hyryder-right-front-three-quarter.jpeg?isig=0&q=75",
+          category: "SUV",
+        },
+        {
+          name: "Renault Kiger",
+          price: 1123000,
+          company:"Renault",
+          image:
+            "https://imgd.aeplcdn.com/664x374/n/cw/ec/141857/kiger-exterior-right-front-three-quarter.png?isig=0&q=75",
+          category: "SUV",
+        },
+        {
+          name: "BMW 2 Series Gran Coupe",
+          price: 4350000,
+          company:"BMW",
+          image:
+            "https://imgd.aeplcdn.com/664x374/n/cw/ec/48034/2-series-gran-coupe-exterior-right-front-three-quarter.jpeg?q=75",
+          category: "Coupe",
+        },
+        {
+          name: "Audi Q3 Sportback",
+          price: 5143000,
+          company:"Audi",
+          image:
+            "https://imgd.aeplcdn.com/664x374/n/cw/ec/141373/q3-sportback-exterior-right-front-three-quarter.jpeg?isig=0&q=75",
+          category: "Coupe",
+        },
+        {
+          name: "Jaguar F-Type",
+          price: 9813000,
+          company:"Tata",
+          image:
+            "https://imgd.aeplcdn.com/664x374/n/cw/ec/141373/q3-sportback-exterior-right-front-three-quarter.jpeg?isig=0&q=75",
+          category: "Coupe",
+        },
+        {
+          name: "Porsche Cayenne Coupe",
+          price: 21700000,
+          company:"Porsche",
+          image:
+            "https://imgd.aeplcdn.com/664x374/n/cw/ec/43728/porsche-cayenne-coupe-exterior-3.jpeg?q=75",
+          category: "Coupe",
+        },
+        {
+          name: "MINI Cooper Convertible",
+          price: 51820000,
+          company:"MINI Cooper",
+          image:
+            "https://imgd.aeplcdn.com/664x374/n/cw/ec/34561/cooper-convertible-exterior-right-front-three-quarter-2.jpeg?q=75",
+          category: "Convertible",
+        },
+        {
+          name: "BMW Z4",
+          price: 84900000,
+          company:"BMW",
+          image:
+            "https://imgd.aeplcdn.com/664x374/cw/ec/37095/BMW-Z4-Roadster-Right-Front-Three-Quarter-153914.jpg?wm=0&q=75",
+          category: "Convertible",
+        },
+        {
+          name: "Mercedes-Benz AMG E53 Cabriolet",
+          price: 184900000,
+          company:"Mercedes",
+          image:
+            "https://imgd.aeplcdn.com/664x374/n/cw/ec/137541/amg-e53-cabriolet-exterior-right-front-three-quarter-8.jpeg?isig=0&q=75",
+          category: "Convertible",
+        },
+        {
+          name: "Aston Martin DB11",
+          price: 384900000,
+          company:"Aston Martin",
+          image:
+            "https://imgd.aeplcdn.com/664x374/cw/ec/25539/Aston-Martin-DB11-Right-Front-Three-Quarter-82872.jpg?v=201711021421&q=75",
+          category: "Convertible",
+        },
+     
+      ];
+
+
+      function viewAllRecord() {
+        let tbl = "";
+        data.map((val) => {
+          tbl += `
+                      <div class="col-md-4 pb-4">
+                          <div class="card">
+                              <img src="${val.image}" style="height:300px;object-fit:cover" class="card-img-top" alt="...">
+                              <div class="card-body">
+                              <h5 class="card-title">${val.name}</h5>
+                              <p class="card-text">${val.category}</p>
+                              <a href="#" class="btn btn-primary">Order</a>
+                              </div>
+                          </div>
+                      </div>
+                  `;
+        });
+
+        document.getElementById("allrecord").innerHTML = tbl;
+      }
+      viewAllRecord();
+      function hatchbackData() {
+        let category = "Hatchback";
+        let tbl = "";
+        data.map((val) => {
+          if (val.category == category) {
+            tbl += `
+                          <div class="col-md-4 pb-4">
+                              <div class="card">
+                                  <img src="${val.image}" style="height:300px;object-fit:cover" class="card-img-top" alt="...">
+                                  <div class="card-body">
+                                  <h5 class="card-title">${val.name}</h5>
+                                  <p class="card-text">${val.category}</p>
+                                  <a href="#" class="btn btn-primary">Order</a>
+                                  </div>
+                              </div>
+                          </div>
+                      `;
+          }
+        });
+        document.getElementById("allrecord").innerHTML = tbl;
+      }
+      function TataData() {
+        let company = "Tata";
+        let tbl = "";
+        data.map((val) => {
+          if (val.company == company) {
+            tbl += `
+                          <div class="col-md-4 pb-4">
+                              <div class="card">
+                                  <img src="${val.image}" style="height:300px;object-fit:cover" class="card-img-top" alt="...">
+                                  <div class="card-body">
+                                  <h5 class="card-title">${val.name}</h5>
+                                  <p class="card-text">${val.category}</p>
+                                  <a href="#" class="btn btn-primary">Order</a>
+                                  </div>
+                              </div>
+                          </div>
+                      `;
+          }
+        });
+        document.getElementById("allrecord").innerHTML = tbl;
+      }
+      function MarutiData() {
+        let company = "Maruti";
+        let tbl = "";
+        data.map((val) => {
+          if (val.company == company) {
+            tbl += `
+                          <div class="col-md-4 pb-4">
+                              <div class="card">
+                                  <img src="${val.image}" style="height:300px;object-fit:cover" class="card-img-top" alt="...">
+                                  <div class="card-body">
+                                  <h5 class="card-title">${val.name}</h5>
+                                  <p class="card-text">${val.category}</p>
+                                  <a href="#" class="btn btn-primary">Order</a>
+                                  </div>
+                              </div>
+                          </div>
+                      `;
+          }
+        });
+        document.getElementById("allrecord").innerHTML = tbl;
+      }
+      function HyundaiData() {
+        let company = "Hyundai";
+        let tbl = "";
+        data.map((val) => {
+          if (val.company == company) {
+            tbl += `
+                          <div class="col-md-4 pb-4">
+                              <div class="card">
+                                  <img src="${val.image}" style="height:300px;object-fit:cover" class="card-img-top" alt="...">
+                                  <div class="card-body">
+                                  <h5 class="card-title">${val.name}</h5>
+                                  <p class="card-text">${val.category}</p>
+                                  <a href="#" class="btn btn-primary">Order</a>
+                                  </div>
+                              </div>
+                          </div>
+                      `;
+          }
+        });
+        document.getElementById("allrecord").innerHTML = tbl;
+      }
+
+      function sedanData() {
+        let category = "Sedan";
+        let tbl = "";
+        data.map((val) => {
+          if (val.category == category) {
+            tbl += `
+                          <div class="col-md-4 pb-4">
+                              <div class="card">
+                                  <img src="${val.image}" style="height:300px;object-fit:cover" class="card-img-top" alt="...">
+                                  <div class="card-body">
+                                  <h5 class="card-title">${val.name}</h5>
+                                  <p class="card-text">${val.category}</p>
+                                  <a href="#" class="btn btn-primary">Order</a>
+                                  </div>
+                              </div>
+                          </div>
+                      `;
+          }
+        });
+        document.getElementById("allrecord").innerHTML = tbl;
+      }
+
+      function suvData() {
+        let category = "SUV";
+        let tbl = "";
+        data.map((val) => {
+          if (val.category == category) {
+            tbl += `
+                          <div class="col-md-4 pb-4">
+                              <div class="card">
+                                  <img src="${val.image}" style="height:300px;object-fit:cover" class="card-img-top" alt="...">
+                                  <div class="card-body">
+                                  <h5 class="card-title">${val.name}</h5>
+                                  <p class="card-text">${val.category}</p>
+                                  <a href="#" class="btn btn-primary">Order</a>
+                                  </div>
+                              </div>
+                          </div>
+                      `;
+          }
+        });
+        document.getElementById("allrecord").innerHTML = tbl;
+      }
+
+      function coupeData() {
+        let category = "Coupe";
+        let tbl = "";
+        data.map((val) => {
+          if (val.category == category) {
+            tbl += `
+                          <div class="col-md-4 pb-4">
+                              <div class="card">
+                                  <img src="${val.image}" style="height:300px;object-fit:cover" class="card-img-top" alt="...">
+                                  <div class="card-body">
+                                  <h5 class="card-title">${val.name}</h5>
+                                  <p class="card-text">${val.category}</p>
+                                  <a href="#" class="btn btn-primary">Order</a>
+                                  </div>
+                              </div>
+                          </div>
+                      `;
+          }
+        });
+        document.getElementById("allrecord").innerHTML = tbl;
+      }
+      function convertibleData() {
+        let category = "Convertible";
+        let tbl = "";
+        data.map((val) => {
+          if (val.category == category) {
+            tbl += `
+                          <div class="col-md-4 pb-4">
+                              <div class="card">
+                                  <img src="${val.image}" style="height:300px;object-fit:cover" class="card-img-top" alt="...">
+                                  <div class="card-body">
+                                  <h5 class="card-title">${val.name}</h5>
+                                  <p class="card-text">${val.category}</p>
+                                  <a href="#" class="btn btn-primary">Order</a>
+                                  </div>
+                              </div>
+                          </div>
+                      `;
+          }
+        });
+        document.getElementById("allrecord").innerHTML = tbl;
+      }
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditional statement-2</title>
+</head>
+<body>
+    <h1 id="ok"></h1>
+
+    <script type="text/javascript">
+        var a= parseInt(prompt("Enter number"));
+
+        if(a%2==0){
+            document.getElementById("ok").innerHTML= "You enter even number.";
+        }
+        else if(a%2==1){
+            document.getElementById("ok").innerHTML= "You enter odd number.";
+        }
+        else{
+            document.getElementById("ok").innerHTML= "You enter invalid input.";
+        }
+    </script>
+    
+</body>
+</html>

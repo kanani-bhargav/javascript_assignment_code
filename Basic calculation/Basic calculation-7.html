@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic calculation-7</title>
+   
+</head>
+<body>
+    <h1 id="ok"></h1>
+    <h2 id="second"></h2>
+    <script type="text/javascript">
+       var p=parseInt(prompt("Enter Principal amount"));
+       var s=parseInt(prompt("Enter Simple Interest "));
+       var n=parseInt(prompt("Enter Time in year"));
+       var result;
+
+       result=(100*s)/(p*n);
+
+       document.getElementById("ok").innerHTML="Rate of interest per Annum = "+result +" %";
+    </script>
+</body>
+</html>

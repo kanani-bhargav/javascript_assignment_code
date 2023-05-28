@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array method and Iteration</title>
+</head>
+<body>
+    
+
+    <script type="text/javascript">
+
+        //Array Methods.
+
+        let myArray=["Sky","earth","Water","universe","fire","Life","peace","happiness","space"];
+        let twoArray=[11,9,12,4,2,96,5]
+
+        //array.length method for find length of array
+        let arrlength=myArray.length; 
+        console.log(arrlength,"array.length");
+        
+        //array.toString() convert in to single string
+        let arrstring=myArray.toString();
+        console.log(arrstring,"Array.toString()");//return all array in one string
+
+        //array.pop() remove array last element 
+        let arrPop=myArray.pop(); //return array last element = space
+        console.log(arrPop,"Array.pop()"); 
+        console.log(myArray); //print all array element except space element
+
+        //array.push() add array last element 
+        let arrPush=myArray.push("love","joy");// print array length = 10
+        console.log(arrPush,"Array.push('love','joy')") 
+        console.log(myArray) // print all array element adding "love" and "joy" 
+
+        //array.shift() remove array first element
+        let arrShift=myArray.shift();//return array first element = sky
+        console.log(arrShift,"myArray.shift()"); 
+        console.log(myArray);//print all array element except first element "sky"
+
+        //array.unshift()  adding array element from first
+        let arrUnshift=myArray.unshift("thrill","adventure"); // return array length =10
+        console.log(arrUnshift,"Array.unshift('thrill','adventure')");
+        console.log(myArray);  // print all array element add "thrill" , "advanture" from array start
+
+        //array.join()  join array in string with given string value
+        let arrJoin=myArray.join("+new+");
+        console.log(arrJoin,"Array.join('+new+')");  //print and return string thrill+new+adventure+new+earth+new+Water+new+universe+new+fire+new+Life+new+peace+new+happiness+new+love
+     
+        //array.concat() use for mearge two array
+        let arrConcat=myArray.concat(twoArray,"max");//you can also merge string and individual element
+        console.log(arrConcat,"Array.concat(twoArray,'max')");  // print and return Merge array ['thrill', 'adventure', 'earth', 'Water', 'universe', 'fire', 'Life', 'peace', 'happiness', 'love', 'joy', 11, 9, 12, 4, 2, 96, 5,"max"]
+
+
+        // array.flat() it use for if array in array convert in to single array
+        let flatarray=[[1,2,3],[11,22,33],[999,88,7]];
+        let arrFlat=flatarray.flat(); // return single array [1, 2, 3, 11, 22, 33, 999, 88, 7]
+        console.log(arrFlat,"array.flat()"); 
+
+         // array.splice() it use for remove array element and add array element
+        let arrSplice=myArray.splice(2,2) // it return array index from (2), length of array element(2) in array eg ['earth', 'Water'] 
+        console.log(arrSplice,"Array.splice(2,2)");
+        console.log(myArray);
+
+         // array.splice() it use for remove array element and add array element
+        let arr2Splice=myArray.splice(1,1,"earth","water"); // return only removed element from array
+        console.log(arrSplice,"Array.splice(1,1,'earth','water')");
+
+         // array.sort() it use for remove array element and add array element
+        let arrSort=myArray.sort() //return alphabetically and give priority uppercase first letter in array elemet 
+        console.log(arrSort,"Array.sort()");
+       
+    </script>
+</body>
+</html>

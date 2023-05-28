@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UDF (User Defined Function)-11</title>
+  </head>
+  <body>
+    <h1 id="ok"></h1>
+
+    <script type="text/javascript">
+      //                      simple
+      //    function checkTriangle() {
+      //     var a = parseInt(prompt("Enter angle 1"));
+      //     var b = parseInt(prompt("Enter angle 2"));
+      //     var c = parseInt(prompt("Enter angle 3"));
+      //     var sum;
+
+      //     sum = a + b + c;
+
+      //     if (sum == 180) {
+      //       document.getElementById("ok").innerHTML = "Triangle is valid";
+      //     } else {
+      //       document.getElementById("ok").innerHTML = "Triangle is not valid";
+      //     }
+      //   }
+      //   checkTriangle();
+
+      //   no return with parameter
+      //   function checkTriangle(x, y, z) {
+      //     var sum;
+      //     sum = a + b + c;
+
+      //     if (sum == 180) {
+      //       document.getElementById("ok").innerHTML = "Triangle is valid";
+      //     } else {
+      //       document.getElementById("ok").innerHTML = "Triangle is not valid";
+      //     }
+      //   }
+      //   var a = parseInt(prompt("Enter angle 1"));
+      //   var b = parseInt(prompt("Enter angle 2"));
+      //   var c = parseInt(prompt("Enter angle 3"));
+      //   checkTriangle(a, b, c);
+
+      //return with no parameter
+      //   function checkTriangle() {
+      //     var a = parseInt(prompt("Enter angle 1"));
+      //     var b = parseInt(prompt("Enter angle 2"));
+      //     var c = parseInt(prompt("Enter angle 3"));
+      //     var sum;
+      //     sum = a + b + c;
+
+      //     if (sum == 180) {
+      //       return "Triangle is valid";
+      //     } else {
+      //       return "Triangle is not valid";
+      //     }
+      //   }
+      //   document.getElementById("ok").innerHTML = checkTriangle();
+
+                             //return with parameter
+      function checkTriangle(x, y, z) {
+        var sum;
+        sum = a + b + c;
+
+        if (sum == 180) {
+          return "Triangle is valid";
+        } else {
+          return "Triangle is not valid";
+        }
+      }
+      var a = parseInt(prompt("Enter angle 1"));
+      var b = parseInt(prompt("Enter angle 2"));
+      var c = parseInt(prompt("Enter angle 3"));
+      document.getElementById("ok").innerHTML = checkTriangle(a, b, c);
+    </script>
+  </body>
+</html>

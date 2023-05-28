@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>oops task-1</title>
+  </head>
+  <body>
+    <h1 id="result"></h1>
+    <script type="text/javascript">
+      class student {
+        constructor(p, c, b, m, cs) {
+          let total_marks;
+          let outof = 500;
+          let per;
+          this.p = p;
+          this.c = c;
+          this.b = b;
+          this.m = m;
+          this.cs = cs;
+
+          total_marks = p + c + b + m + cs;
+          per = (total_marks / outof) * 100;
+
+          if (per >= 90) {
+            document.getElementById("result").innerHTML = "Grade A";
+          } else if (per < 90 && per >= 80) {
+            document.getElementById("result").innerHTML = "Grade B";
+          } else if (per < 80 && per >= 70) {
+            document.getElementById("result").innerHTML = "Grade C";
+          } else if (per < 70 && per >= 60) {
+            document.getElementById("result").innerHTML = "Grade D";
+          } else if (per < 60 && per >= 50) {
+            document.getElementById("result").innerHTML = "Grade E";
+          } else if (per < 50 && per >= 40) {
+            document.getElementById("result").innerHTML = "Grade F";
+          } else {
+            document.getElementById("result").innerHTML =
+              "you cananot pass exam";
+          }
+        }
+      }
+
+      let a = parseInt(prompt("Enter Physics marks"));
+      let b = parseInt(prompt("Enter Chemistry marks"));
+      let c = parseInt(prompt("Enter Biology marks"));
+      let d = parseInt(prompt("Enter Mathematics  marks"));
+      let e = parseInt(prompt("Enter Computer marks"));
+
+      let ok = new student(a, b, c, d, e);
+    </script>
+  </body>
+</html>

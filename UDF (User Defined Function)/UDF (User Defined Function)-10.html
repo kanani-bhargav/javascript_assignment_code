@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UDF (User Defined Function)-10</title>
+  </head>
+  <body>
+    <h1 id="ok"></h1>
+
+    <script type="text/javascript">
+      function calculator(){
+        var a = parseInt(prompt("Enter First number"));
+        var c = prompt("Enter operator");
+        var b = parseInt(prompt("Enter Second number"));
+        var result;
+
+        switch (c) {
+          case "+":
+            result = a + b;
+            document.getElementById("ok").innerHTML =
+              "addition of two number :  " + a + " + " + b + " = " + result;
+            break;
+          case "-":
+            result = a - b;
+            document.getElementById("ok").innerHTML =
+              "subtraction of two number :  " + a + " - " + b + " = " + result;
+            break;
+          case "*":
+            result = a * b;
+            document.getElementById("ok").innerHTML =
+              "multiplication of two number :  " + a + " * " + b + " = " + result;
+            break;
+          case "/":
+            result = a / b;
+            document.getElementById("ok").innerHTML =
+              "division of two number :  " + a + " / " + b + " = " + result;
+            break;
+          default:
+            document.getElementById("ok").innerHTML = "Invaid operator";
+            break;
+        }
+      }
+      calculator();
+    </script>
+  </body>
+</html>

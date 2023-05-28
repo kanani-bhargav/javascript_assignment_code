@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>oops task-2</title>
+</head>
+<body>
+
+    <table border="1">
+        <tr>
+            <td>name</td>
+            <td>email</td>
+            <td>phone</td>
+        </tr>
+    
+        <tbody id="record">
+    
+        </tbody>
+    
+    </table>
+    
+    <script type="text/javascript">
+    
+        let tbl = "";
+    
+        class Emp{
+            constructor(name,email,phone){
+                this.name = name;
+                this.email = email;
+                this.phone = phone;
+            }
+            getRecord(){
+    
+                tbl += `
+                            <tr>
+                                <td>${this.name}</td>
+                                <td>${this.email}</td>
+                                <td>${this.phone}</td>
+                            </tr>
+                        `
+    
+                document.getElementById('record').innerHTML = tbl;
+            }
+        }
+        let data=[
+                {                 
+                name : "jay",
+                email : "jay@gmail.com",
+                phone : "12345"
+                },
+                {
+                    name : "ajay",
+                    email : "ajay@gmail.com",
+                    phone : "12345"
+                },
+                {
+                    name : "vijay",
+                    email : "vijay@gmail.com",
+                    phone : "12345"
+                },
+                {
+                    name : "ashish",
+                    email : "ashish@gmail.com",
+                    phone : "12345"
+                },
+        ]
+    
+        // for(let x=0;x<=data.length;x++){
+        //     let ans[x] = new Emp(data[x].name,data[x].email,data[x].phone);
+        // }
+        let ans0 = new Emp("jay", "jay@gmail.com", "12345");
+        let ans1 = new Emp("ajay", "ajay@gmail.com", "12345");
+        let ans2 = new Emp("vijay", "vijay@gmail.com", "12345");
+        let ans3 = new Emp("ashish", "ashish@gmail.com", "12345");
+        
+
+
+        // for(let y=0;y<data.length;y++){
+        //     ans[y].getRecord();
+        // }
+
+
+        ans0.getRecord();
+        ans1.getRecord();
+        ans2.getRecord();
+        ans3.getRecord();
+
+        // console.log(data[0].name);
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditional statement-4</title>
+</head>
+<body>
+    <h1 id="ok"></h1>
+
+    <script type="text/javascript">
+        
+        var a= parseInt(prompt("Enter First number"));
+        var b= parseInt(prompt("Enter Second number"));
+        var c= parseInt(prompt("Enter Third number"));
+        var d= parseInt(prompt("Enter Fourth number"));
+
+
+        if(a>b && a>c && a>d){
+            document.getElementById("ok").innerHTML= a+ " is greter.";
+        }
+        else if(b>a && b>c && b>d){
+            document.getElementById("ok").innerHTML= b+ " is greter.";
+        }
+        else if(c>a && c>b && c>d){
+            document.getElementById("ok").innerHTML= c+ " is greter.";
+        }
+        else if(d>a && d>b && d>c){
+            document.getElementById("ok").innerHTML= d+ " is greter.";
+        }
+        else{
+            document.getElementById("ok").innerHTML= "you enter same number";
+        }
+        
+    </script>
+    
+</body>
+</html>

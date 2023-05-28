@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditional statement-6</title>
+</head>
+<body>
+    <h1 id="ok"></h1>
+
+    <script type="text/javascript">
+        var a= parseInt(prompt("Enter Physics marks"));
+        var b= parseInt(prompt("Enter Chemistry marks"));
+        var c= parseInt(prompt("Enter Biology marks"));
+        var d= parseInt(prompt("Enter Mathematics  marks"));
+        var e= parseInt(prompt("Enter Computer marks"));
+        var percentage;
+
+        percentage =((a+b+c+d+e)/500)*100
+
+        if(percentage >= 90){
+            document.getElementById("ok").innerHTML= "Your Grade is A.";
+        }
+        else if(percentage>=80){
+            document.getElementById("ok").innerHTML= "Your Grade is B.";
+        }
+        else if(percentage>=70){
+            document.getElementById("ok").innerHTML= "Your Grade is C.";
+        }
+        else if(percentage>=60){
+            document.getElementById("ok").innerHTML= "Your Grade is D.";
+        }
+        else if(percentage>=50){
+            document.getElementById("ok").innerHTML= "Your Grade is E.";
+        }
+        else if(percentage>=40){
+            document.getElementById("ok").innerHTML= "Your Grade is F.";
+        }
+        else if(percentage<=40){
+            document.getElementById("ok").innerHTML= "Your did not get any Grade.";
+        }
+        else{
+            document.getElementById("ok").innerHTML= "You enter invalid input.";
+            
+        }
+    </script>
+    
+</body>
+</html>

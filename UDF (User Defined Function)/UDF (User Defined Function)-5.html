@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UDF (User Defined Function)-5</title>
+  </head>
+  <body>
+    <h1 id="ok"></h1>
+
+    <script type="text/javascript">
+      function checkTriangle() {
+        var a = parseInt(prompt("Enter angle 1"));
+        var b = parseInt(prompt("Enter angle 2"));
+        var c = parseInt(prompt("Enter angle 3"));
+        var sum;
+
+        sum = a + b + c;
+
+        if (sum == 180) {
+          document.getElementById("ok").innerHTML = "Triangle is valid";
+        } else {
+          document.getElementById("ok").innerHTML = "Triangle is not valid";
+        }
+      }
+      checkTriangle();
+    </script>
+  </body>
+</html>

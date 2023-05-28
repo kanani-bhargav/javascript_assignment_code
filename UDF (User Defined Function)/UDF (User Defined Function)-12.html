@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UDF (User Defined Function)-12</title>
+  </head>
+  <body>
+    <h1 id="ok"></h1>
+
+    <script type="text/javascript">
+      //using simple function
+
+      // function eligible(){
+
+      // var a= parseInt(prompt("Enter number"));
+
+      // if(a>=18){
+      //     document.getElementById("ok").innerHTML= "You are eligible for voting.";
+      // }
+      // else if(a<18){
+      //     document.getElementById("ok").innerHTML= "You can't vote.";
+      // }
+      // else{
+      //     document.getElementById("ok").innerHTML= "You enter invalid input.";
+      // }
+      // }
+      // eligible();
+
+      //using no return with parameter function
+
+      // function eligible(x){
+      // if(a>=18){
+      //     document.getElementById("ok").innerHTML= "You are eligible for voting.";
+      // }
+      // else if(a<18){
+      //     document.getElementById("ok").innerHTML= "You can't vote.";
+      // }
+      // else{
+      //     document.getElementById("ok").innerHTML= "You enter invalid input.";
+      // }
+      // }
+      // var a= parseInt(prompt("Enter number"));
+      // eligible(a);
+
+      //return with no parameter
+
+      //     function eligible(){
+      //     var a= parseInt(prompt("Enter number"));
+
+      //     if(a>=18){
+      //       return  "You are eligible for voting.";
+      //     }
+      //     else if(a<18){
+      //        return "You can't vote.";
+      //     }
+      //     else{
+      //         return "You enter invalid input.";
+      //     }
+      //     }
+      //    var ans= eligible();
+      //    document.getElementById("ok").innerHTML= ans;
+
+      //return with parameter
+      function eligible(x) {
+        if (a >= 18) {
+          return "You are eligible for voting.";
+        } else if (a < 18) {
+          return "You can't vote.";
+        } else {
+          return "You enter invalid input.";
+        }
+      }
+      var a = parseInt(prompt("Enter number"));
+      var ans = eligible(a);
+      document.getElementById("ok").innerHTML = ans;
+    </script>
+  </body>
+</html>

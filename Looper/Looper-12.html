@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Looper-12</title>
+  </head>
+  <body>
+    <h1 id="ok"></h1>
+
+    <script type="text/javascript">
+      var a = parseInt(prompt("Enter a positive number: "));
+      var Prime = true;
+      var i = 2
+
+      if (a === 1) {
+        document.write("<h2>1 is neither prime nor composite number. </h2>");
+      } else if (a > 1) {
+        while(i<a){
+            if (a % i == 0) {
+            Prime = false;
+            break;
+            i++;
+          }
+        }  
+        if (Prime) {
+          document.write("<h2>" + a + " : is a prime number</h2>");
+        } else {
+          document.write("<h2>" + a + " : is a not prime number</h2>");
+        }
+      }
+      else {
+        document.write("<h2>" + a + " : is a not prime number</h2>");
+      }
+    </script>
+  </body>
+</html>

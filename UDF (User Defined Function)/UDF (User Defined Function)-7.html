@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UDF (User Defined Function)-7</title>
+</head>
+<body>
+    <h1 id="add"></h1>
+    <h1 id="sub"></h1>
+    <h1 id="mul"></h1>
+    <h1 id="div"></h1>
+
+    <script type="text/javascript">
+        function asmd(){
+            var a=parseInt(prompt("Enter number"));
+            var b=parseInt(prompt("Enter number"));
+            var addition,subtraction,multiplication,division;
+            addition=a+b;
+            subtraction=a-b;
+            multiplication=a*b;
+            division=a/b;
+            document.getElementById("add").innerHTML = a + " + " + b +" = "+ addition;
+            document.getElementById("sub").innerHTML = a + " - " + b +" = "+ subtraction;
+            document.getElementById("mul").innerHTML = a + " * " + b +" = "+ multiplication;
+            document.getElementById("div").innerHTML = a + " / " + b +" = "+ division;
+        }
+        
+        asmd();
+        
+    </script>
+    
+</body>
+</html>

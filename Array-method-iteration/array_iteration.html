@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>array iteration</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        let myArray = ["space", "earth", "fire", "sky", "water", "joy"];
+        let myNumArray = [2, 8, 9, 7, 6, 44, 32, 5]
+
+        //arr.forEach() access value index and whole array
+        let arrforEach = myArray.forEach((val, ind, arr) => {
+            console.log(val, ind, arr);
+            return (val)  //not return any value
+        })
+        console.log(arrforEach); //undefined
+
+        //arr.map() access access value index and whole array
+        let arrmap = myArray.map((val, ind, arr) => {
+            // console.log(val,ind,arr);
+            return (val)
+        })
+        console.log(arrmap);
+
+        //arr.flatMap() first maps all elements of an array and then creates a new array by flattening the array. 
+        let arrflatMap = myNumArray.flatMap((x) => x * 2 + 1);
+        console.log(arrflatMap);
+
+        //arr.filter filter array value and then return
+        let arrfilter = myNumArray.filter((val, ind, arr) => {
+            return (val > 20)
+        })
+        console.log(arrfilter);
+
+        //arr.reduce method works from left-to-right in the array method does not reduce the original array
+        let arrreduce = myNumArray.reduce((total, value, index, arra) => {
+            return total + value // return total sum
+        }
+        )
+        console.log(arrreduce);
+
+        //arr.every() method checks if all array values pass a test.
+        let arrevery =myNumArray.every((value, index, array)=>{
+            return value>=2  // check every array element but if  any one element does not meet condition return false else return true
+        })
+        console.log(arrevery);// true
+
+        //arr.some() method checks if some array values pass a test.
+        let arrsome=myNumArray.some((value, index, array)=>{
+            return value==5 //its check every array element but if  any one element meet condition true return else false
+        })
+        console.log(arrsome); //true
+
+        //arr.keys() returns an Array Iterator object with the keys of an array.
+        let arrkeys=myNumArray.keys();
+       // console.log(arrkeys);                //Array Iterator {}
+        for(let x of arrkeys){
+            console.log(x);      //show index of array
+        }
+
+
+        //arr.entries() method returns an Array Iterator object with key/value pairs
+        let arrentries = myArray.entries();
+        for(let u of arrentries){
+            console.log(u);   //show key and value
+        }
+
+
+    </script>
+
+</body>
+
+</html>

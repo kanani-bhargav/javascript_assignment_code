@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>function</title>
+  </head>
+
+  <body>
+    <script type="text/javascript">
+      //Functions are one of the fundamental building blocks in JavaScript. A function in JavaScript is similar to a procedure—a set of statements that performs a task or calculates a value, but for a procedure to qualify as a function, it should take some input and return an output where there is some obvious relationship between the input and the output. To use a function, you must define it somewhere in the scope from which you wish to call it.
+
+      //Function declarations
+      // A function definition (also called a function declaration, or function statement) consists  of the function keyword, followed by:
+
+      // The name of the function.
+      // A list of parameters to the function, enclosed in parentheses and separated by commas.
+      // The JavaScript statements that define the function, enclosed in curly brackets, { /* … */ }.
+
+      //auto render function
+      function myFun() {
+        document.write("welcome in javascript world");
+      }
+      myFun(); //auto render invoke
+
+      //normal function without return
+      funNormal(); // invoke function before initializing also call hoisting  function being called before it's declared
+      function funNormal() {
+        console.log("normal function without return"," => hello");
+      }
+      funNormal(); //invoke function after initializing
+
+      //normal function with return
+      function funcNormal() {
+        return " = > people are awesome";
+      }
+      console.log("normal function with return" , funcNormal()); //invoke function after initializing
+
+      //parameterized function with argument and without return
+      function addTwoNum(x, y) {
+        let z = x + y;
+        console.log("parameterized function with argument without return",x+y);
+       
+      }
+      addTwoNum(10, 10);
+
+      //parameterized function with argument and with return
+      function sumTwoNum(x, y) {
+        let z = x + y;
+        return z;  // return sum of x and y 
+        // return x+y;
+      }
+      console.log("parameterized function with argument with return", sumTwoNum(20, 20));
+
+      //parameterized function without argument
+      function mulTwoNum(x, y) {
+        if (x == undefined) {
+          let x = 2;
+          if (y == undefined) {
+            let y = 2;
+            return x * y;
+          } 
+        }
+      }
+      console.log("parameterized function without argument", mulTwoNum());
+
+      //While the function declaration above is syntactically a statement, functions can also be created by a function expression.
+
+      //Such a function can be anonymous; it does not have to have a name. For example, the function numCube could have been defined as:
+
+      //console.log(numCube(2));     //you can not invoke before initializing function
+      const numCube = function (num) {
+        //anonymous function
+        return num ** 3;
+      };
+      numCube(2); //its return cube
+      console.log("anonymous function", numCube(2)); //return value of function print
+
+      const useCube = function newCube(num) {
+        //anonymous function
+        return num ** 3;
+      };
+      useCube(2); //its return cube
+      console.log(useCube(3)); //return value of function print if you can try print newCube error generate
+
+      //Recursion
+      function myFact(n) {
+        if (n === 0 || n === 1) {
+          return 1;
+        } else {
+          return n * myFact(n - 1); //Recursion
+        }
+      }
+      console.log("Recursion", myFact(4));
+
+      //looping using function
+      function numLoop(val) {
+        if (val < 0) {
+          return;
+        }
+        numLoop(val - 1);
+        console.log(val);
+      }
+      numLoop(10);
+
+      //Nested functions and closures
+      function addSquare(a, b) {
+        function square(z) {
+          return z * z; //return square from function
+        }
+        return square(a) + square(b); //invoke square function pass argument as a & b
+      }
+      console.log("Nested functions",addSquare(2, 4)); // invoke and print addSquare passing parameter
+
+      function outside(x) {
+        function inside(y) {
+          return x + y;
+        }
+        return inside;
+      }
+      console.log("Nested functions",outside(2)(3)); //passing parameter first outer function second ineer function
+    </script>
+  </body>
+</html>

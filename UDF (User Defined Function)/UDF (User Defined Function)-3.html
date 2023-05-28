@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UDF (User Defined Function)-3</title>
+  </head>
+  <body>
+    <h1 id="ok"></h1>
+
+    <script type="text/javascript">
+      function checkNumber() {
+        var a = parseInt(prompt("Enter number"));
+        var b = parseInt(prompt("Enter number"));
+        var c = parseInt(prompt("Enter number"));
+        var d = parseInt(prompt("Enter number"));
+
+        if (a == b && c == d && b == d) {
+          document.getElementById("ok").innerHTML = " all are same";
+        } else {
+          if (a > b) {
+            if (a > c) {
+              if (a > d) {
+                document.getElementById("ok").innerHTML = a + " is Greter";
+              } else {
+                document.getElementById("ok").innerHTML = d + " is Greter";
+              }
+            } else {
+              if (c > d) {
+                document.getElementById("ok").innerHTML = c + " is Greter";
+              } else {
+                document.getElementById("ok").innerHTML = d + " is Greter";
+              }
+            }
+          } else {
+            if (b > c) {
+              if (b > d) {
+                document.getElementById("ok").innerHTML = b + " is Greter";
+              } else {
+                document.getElementById("ok").innerHTML = d + " is Greter";
+              }
+            } else {
+              if (c > d) {
+                document.getElementById("ok").innerHTML = c + " is Greter";
+              } else {
+                document.getElementById("ok").innerHTML = d + " is Greter";
+              }
+            }
+          }
+        }
+      }
+      checkNumber();
+    </script>
+  </body>
+</html>

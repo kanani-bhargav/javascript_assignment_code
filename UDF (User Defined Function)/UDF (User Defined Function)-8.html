@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UDF (User Defined Function)-8</title>
+  </head>
+  <body>
+    <h1 id="ok"></h1>
+    <h2 id="second"></h2>
+
+    <script type="text/javascript">
+      // simple
+      //   function swap() {
+      //     var a = parseInt(prompt("Enter First number"));
+      //     var b = parseInt(prompt("Enter Second number"));
+      //     b = a + b;
+      //     a = b - a;
+      //     b = b - a;
+      //     document.getElementById("ok").innerHTML =
+      //       "after swap : First value = " + a;
+      //     document.getElementById("second").innerHTML =
+      //       "after swap :  Second Value = " + b;
+      //   }
+      //   swap();
+
+      //   no return with parameter
+      //   function swap(x,y) {
+      //     b = a + b;
+      //     a = b - a;
+      //     b = b - a;
+      //     document.getElementById("ok").innerHTML =
+      //       "after swap : First value = " + a;
+      //     document.getElementById("second").innerHTML =
+      //       "after swap :  Second Value = " + b;
+      //   }
+      //   var a = parseInt(prompt("Enter First number"));
+      //     var b = parseInt(prompt("Enter Second number"));
+      //   swap(a,b);
+
+      //  return with no parameter
+      //   function swap() {
+      //     var a = parseInt(prompt("Enter First number"));
+      //     var b = parseInt(prompt("Enter Second number"));
+      //     b = a + b;
+      //     a = b - a;
+      //     b = b - a;
+
+      //     return  "after swap : First value = " + a +"  Second Value = " + b;
+      //   }
+      //   document.getElementById("ok").innerHTML = swap();
+
+      //    return with parameter
+      function swap(x, y) {
+        b = a + b;
+        a = b - a;
+        b = b - a;
+
+        return "after swap : First value = " + a + "  Second Value = " + b;
+      }
+      var a = parseInt(prompt("Enter First number"));
+      var b = parseInt(prompt("Enter Second number"));
+      document.getElementById("ok").innerHTML = swap(a, b);
+    </script>
+  </body>
+</html>

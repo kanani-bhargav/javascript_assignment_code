@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic calculation-4</title>
+   
+</head>
+<body>
+    <h1 id="ok"></h1>
+
+    <script type="text/javascript">
+       var a=parseInt(prompt("Enter salary"));
+       var b=10;
+       var c=5;
+       var t=8;
+       var result;
+       b=(a*b)/100;
+	   c=(a*c)/100;
+	   t=(a*t)/100;
+
+       result = a + b + c + t;
+
+       document.getElementById("ok").innerHTML="Gross salary = " + result;
+    </script>
+</body>
+</html>

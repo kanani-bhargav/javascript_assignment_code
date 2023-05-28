@@ -15,10 +15,22 @@
   <body>
     <div class="container py-5">
       <form action="">
-        <label for="phone" class="form-label fs-4 mb-3">Phone no </label>
-        <input type="tel" id="phone" class="form-control" />
+       <div class="row">
+        <div class="col-6">
+          <label for="firstname" class="form-label fs-4 mb-3">First name</label>
+          <input type="text" id="firstname" class="form-control" />
+        </div>
+        <div class="col-6">
+          <label for="lastname" class="form-label fs-4 mb-3">Last name  </label>
+          <input type="text" id="lastname" class="form-control" />
+        </div>
+        <div class="col-6">
+          <label for="phone" class="form-label fs-4 mb-3">Phone no </label>
+          <input type="tel" id="phone" class="form-control" />
+        </div>
+       </div>
         <button
-          type="button"
+          type="submit"
           class="btn-outline-success form-control mt-5 "
           id="done"
         >
@@ -34,16 +46,18 @@
     ></script>
     <script type="text/javascript">
       let btn = document.querySelector("#done");
+      let phoneno = /^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[789]\d{9}$/gm;
+      let name =/[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$/
       let validation = () => {
         let phonetxt= document.getElementById("phone").value;
-          var phoneno = /^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[789]\d{9}$/gm;
-          if (phonetxt.match(phoneno)) {
+        let nametxt=document.getElementById("firstname").value;
+        let lastnametxt=document.getElementById("lastname").value;
+          if ((phonetxt.match(phoneno))&&(nametxt.match(name))&&(lastnametxt.match(name))) {
             console.log("correct");
-            document.getElementById("phone").value = "";
+        
             return true;
           } else {
-            alert("input valid phone number");
-            document.getElementById("phone").value = "";
+            alert("input valid data");
             return false;
           }
         }

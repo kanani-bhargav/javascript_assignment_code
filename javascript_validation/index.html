@@ -11,6 +11,11 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <style>
+        #nameerr,#lastnameerr,#phoneerr{
+          display: none;
+        }
+    </style>
   </head>
   <body>
     <div class="container py-5">
@@ -19,18 +24,23 @@
         <div class="col-6">
           <label for="firstname" class="form-label fs-4 mb-3">First name</label>
           <input type="text" id="firstname" class="form-control" />
+          <h5 class="text-danger " id="nameerr">please input valid name minimum four character</h5>
+
         </div>
         <div class="col-6">
           <label for="lastname" class="form-label fs-4 mb-3">Last name  </label>
           <input type="text" id="lastname" class="form-control" />
+          <h5 class="text-danger " id="lastnameerr">please input valid name minimum four character</h5>
+
         </div>
         <div class="col-6">
           <label for="phone" class="form-label fs-4 mb-3">Phone no </label>
           <input type="tel" id="phone" class="form-control" />
+          <h5 class="text-danger " id="phoneerr">please input valid phone number does not contain any space between character</h5>
         </div>
        </div>
         <button
-          type="submit"
+          type="button"
           class="btn-outline-success form-control mt-5 "
           id="done"
         >
@@ -46,8 +56,11 @@
     ></script>
     <script type="text/javascript">
       let btn = document.querySelector("#done");
+      let phoneerr=document.getElementById("phoneerr");
+      let nameerr=document.getElementById("nameerr");
+      let lastnameerr=document.getElementById("lastnameerr");
       let phoneno = /^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[789]\d{9}$/gm;
-      let name =/[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$/
+      let name =/^[a-zA-Z0-9][a-zA-Z0-9_]{3,29}$/gm;
       let validation = () => {
         let phonetxt= document.getElementById("phone").value;
         let nametxt=document.getElementById("firstname").value;
@@ -57,6 +70,22 @@
         
             return true;
           } else {
+            if(phonetxt.match(phoneno)){
+            }
+            else{
+              phoneerr.style.display="block"
+            }
+            if(nametxt.match(name)){ 
+            }
+            else{
+              nameerr.style.display="block"
+            }
+            if(lastnametxt.match(name)){
+            }
+            else{
+              lastnameerr.style.display="block"
+            }
+          
             alert("input valid data");
             return false;
           }

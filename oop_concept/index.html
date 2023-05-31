@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>oop concept</title>
+  </head>
+  <body>
+    <script>
+        //using function using constructor
+
+       function hotel(name,staff,location){
+              this.name=name,   //this method
+              this.staff=staff,
+              this.location="munbai",
+              this.all_detail=function(){   //Method to an Object
+                return this.name + " " + this.staff + " " + this.location
+              }
+          }
+          let hotelA =new hotel("taj",255,"mumbai");
+          console.log(hotelA);
+          console.log(hotelA.all_detail());
+  
+
+          //set and get  Accessors
+          let student={
+              firstName:"vivek",
+              lastName:"patel",
+              age:25,
+              course_detail:"",
+              set co_detail(course){   //set Keyword Object Accessors
+                this.course_detail=course;
+              },
+              get all_data(){      //  get Keyword Object Accessors
+            //    return  this.firstName + " " + this.lastName + " "+this.age + " "+ this.course_detail  
+               return [this.firstName,this.lastName,this.age,this.course_detail] //return with array
+              }
+          }
+          student.co_detail = "full stack";
+          console.log(student);
+          console.log(student.all_data); //get all data
+         
+    </script>
+  </body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Registration Form</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <style>
+    span {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <h2>User Registration</h2>
+  
+    <form>
+  
+      <div class="row ">
+        <div class="form-group col-lg-6">
+          <label for="fname" class="form-label">First Name</label>
+          <input type="text" id="fname" autocomplete="fname" placeholder="Enter your first name" class="form-control">
+          <span id="fname-error" class="error"></span>
+        </div>
+  
+        <div class="form-group col-lg-6">
+          <label for="lname" class="form-label">Last Name</label>
+          <input type="text" id="lname" autocomplete="lname" placeholder="Enter your last name" class="form-control">
+          <span id="lname-error" class="error"></span>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="form-group col-6">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" id="email" autocomplete="email" placeholder="Enter your email" class="form-control">
+          <span id="email-error" class="error"></span>
+        </div>
+  
+        <div class="form-group col-6">
+          <label for="mobile" class="form-label">Mobile Number</label>
+          <input type="tel" id="mobile" placeholder="Enter your mobile number" autocomplete="mobile" pattern="[0-9]{10}"
+            class="form-control">
+          <span id="mobile-error" class="error"></span>
+  
+        </div>
+      </div>
+  
+      <div class="form-group ">
+        <label for="dob" class="form-label">Date of Birth:</label>
+        <input type="date" id="dob" autocomplete="dob" name="dob" class="form-control" required>
+      </div>
+  
+      <div class="form-group ">
+        <label for="male" class="form-lable">Gender</label>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gender" id="male" value="male" checked>
+          <label class="form-check-label" for="male">Male</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+          <label class="form-check-label" for="female">Female</label>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="address" class="form-label">Address</label>
+        <textarea id="address" placeholder="Enter your address" autocomplete="address" rows="3" class="form-control"
+          required></textarea>
+      </div>
+  
+      <div class="form-group">
+        <label for="password" type="hidden" class="form-label">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" class="form-control">
+        <span id="password-error" class="error"></span>
+      </div>
+  
+      <button type="button" onclick="validation()" class="btn btn-primary form-control">Register</button>
+  
+    </form>
+    <table class="table table-info table-striped mt-5">
+      <thead>
+        <tr class="text-center text-capitalize">
+          <th>Full name</th>
+          <th>date of birth</th>
+          <th>email</th>
+          <th>contact No</th>
+          <th>address</th>
+          <th>gender</th>
+        </tr>
+      </thead>
+      <tbody id=record class="text-center">
+  
+      </tbody>
+    </table>
+  
+    <table class="table table-primary table-striped ">
+      <legend class="mt-5 text-uppercase text-center">male filter</legend>
+      <thead>
+        <tr class="text-center text-capitalize">
+          <th>Full name</th>
+          <th>date of birth</th>
+          <th>email</th>
+          <th>contact No</th>
+          <th>address</th>
+          <th>gender</th>
+        </tr>
+      </thead>
+      <tbody id=malefilter class="text-center">
+  
+      </tbody>
+    </table>
+  
+    <table class="table table-secondary table-striped ">
+      <legend class="mt-5 text-uppercase text-center">dob before 2000</legend>
+      <thead>
+        <tr class="text-center text-capitalize">
+          <th>Full name</th>
+          <th>date of birth</th>
+          <th>email</th>
+          <th>contact No</th>
+          <th>address</th>
+          <th>gender</th>
+        </tr>
+      </thead>
+      <tbody id=dobfilter class="text-center">
+      </tbody>
+    </table>
+  
+  </div>
+  <script src="valid.js">
+   
+
+  </script>
+</body>
+</html>
+
+

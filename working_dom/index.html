@@ -30,6 +30,7 @@
         let boxC = document.getElementById('boxC');
         let content = document.getElementById('content');
         let btn = document.getElementById('btn');
+        let btnA = document.getElementById('btnA');
         let arr=[
                 {img:1,content:"A turquoise colored sea"},
                 {img:2,content:"Frozen Mount"},
@@ -39,31 +40,45 @@
                 {img:6,content:"Beautiful Sunset"},
                 {img:7,content:"Mountains"},
           ]
-
-        boxA.addEventListener('mouseover', function(){
+          
+        boxA.addEventListener('mouseover',grow )
+        function grow(){
             boxA.style.transform="scale(1.2)";
-        })
-   
-        boxA.addEventListener('mouseout', function(){
+        }
+        
+        boxA.addEventListener('mouseout', shrink)
+        function shrink(){
             boxA.style.transform="scale(1)";
-        })
-        boxB.addEventListener('mouseover', function(){
-            let random=Math.trunc(Math.random()*1000000);
-            boxB.style.backgroundColor=`#${random}`;
-        })
-        boxC.addEventListener('mouseover', function(){
+        }
+
+      
+        boxB.addEventListener('mouseover', randomcolor)
+        function randomcolor() {
+let random = Math.trunc(Math.random() * 1000000);
+boxB.style.backgroundColor = `#${random}`;
+}
+       
+        boxC.addEventListener('mouseover',imgupdate );
+        function imgupdate(){
            
-            let random=Math.trunc(Math.random()*(0-7)+7);
-            let index=random;
-            boxC.style.background=`url(./media/img_${arr[index].img}.jpg)`;
-            content.textContent=arr[index].content
-            boxC.style.backgroundSize=`cover`;
-        });
+           let random=Math.trunc(Math.random()*(0-7)+7);
+           let index=random;
+           boxC.style.background=`url(./media/img_${arr[index].img}.jpg)`;
+           content.textContent=arr[index].content
+           boxC.style.backgroundSize=`cover`;
+       }
 
         btn.addEventListener('click',animationfun)
         function animationfun (){
-            setInterval(
-                function(){
+         
+         var stop =   setInterval(ani,1000)
+  
+          
+            }
+          
+        
+         function ani(){
+            function setgrow(){
                     let boxA=document.getElementById('boxA')
                     if(boxA.style.transform=="scale(1)"){
                         boxA.style.transform="scale(1.2)"
@@ -72,24 +87,28 @@
                     boxA.style.transform="scale(1)"
                    }  
         }
-        ,1000)
-            setInterval(
-                function(){
+        setgrow()
+        
+        function setcolor(){
             let random=Math.trunc(Math.random()*1000000);
             boxB.style.backgroundColor=`#${random}`;
         }
-        ,1000)
-        
-            setInterval(
-                function(){
-           
+        setcolor()
+
+        function imagechange(){
            let random=Math.trunc(Math.random()*(0-7)+7);
            let index=random;
            boxC.style.background=`url(./media/img_${arr[index].img}.jpg)`;
            content.textContent=arr[index].content
            boxC.style.backgroundSize=`cover`;
        }
-        ,1000)
+       imagechange()
+         }
+
+        btnA.addEventListener('click',removehandler)
+        function removehandler(){
+        
+       
         }
 
 

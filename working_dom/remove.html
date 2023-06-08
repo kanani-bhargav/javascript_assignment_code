@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>remove event</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="box boxB" id="boxB"></div>
+    <button class="btn btn-outline-success form-control mt-5" id="btnA" type="button">Animation end</button>
+
+    <script>
+        let boxB = document.getElementById('boxB');
+        let btnA = document.getElementById('btnA');
+        boxB.addEventListener('mouseover',randomcolor )
+        function randomcolor() {
+let random = Math.trunc(Math.random() * 1000000);
+boxB.style.backgroundColor = `#${random}`;
+}
+        btnA.addEventListener('click', function () {
+            boxB.removeEventListener('mouseover', randomcolor);
+        })
+    </script>
+</body>
+
+</html>

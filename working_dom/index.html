@@ -1,120 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>working with dom</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
 </head>
+
 <body>
-
-   <div class="container">
-    <div class="d-flex justify-content-between">
-        <div class="box boxA" id="boxA"></div>
-    <div class="box boxB" id="boxB"></div>
-    <div class="box boxC" id="boxC">
-        <h2 id="content"></h2>
+    <div class="container">
+        <div class="d-flex justify-content-between">
+            <div class="box boxA" id="boxA"></div>
+            <div class="box boxB" id="boxB"></div>
+            <div class="box boxC" id="boxC">
+                <h2 id="content"></h2>
+            </div>
+        </div>
+        <button class="btn btn-outline-success form-control mt-5" id="btn" type="button">Animation Start</button>
+        <button class="btn btn-outline-success form-control mt-5" id="btnA" type="button">Animation end</button>
     </div>
-    </div>
-    <button class="btn btn-outline-success form-control mt-5" id="btn" type="button">Animation Start</button>
-    <button class="btn btn-outline-success form-control mt-5" id="btnA" type="button">Animation end</button>
-   </div>
 
-    <script>
-
+    <script src="shortcode.js"></script>
+    <!-- <script>
         let boxA = document.getElementById('boxA');
         let boxB = document.getElementById('boxB');
         let boxC = document.getElementById('boxC');
         let content = document.getElementById('content');
         let btn = document.getElementById('btn');
         let btnA = document.getElementById('btnA');
-        let arr=[
-                {img:1,content:"A turquoise colored sea"},
-                {img:2,content:"Frozen Mount"},
-                {img:3,content:"Earthly Clay"},
-                {img:4,content:"Mountain with pines"},
-                {img:5,content:"Man Captured"},
-                {img:6,content:"Beautiful Sunset"},
-                {img:7,content:"Mountains"},
-          ]
-          
-        boxA.addEventListener('mouseover',grow )
-        function grow(){
-            boxA.style.transform="scale(1.2)";
-        }
-        
-        boxA.addEventListener('mouseout', shrink)
-        function shrink(){
-            boxA.style.transform="scale(1)";
+        let arr = [
+            { img: 1, content: "A turquoise colored sea" },
+            { img: 2, content: "Frozen Mount" },
+            { img: 3, content: "Earthly Clay" },
+            { img: 4, content: "Mountain with pines" },
+            { img: 5, content: "Man Captured" },
+            { img: 6, content: "Beautiful Sunset" },
+            { img: 7, content: "Mountains" },
+        ]
+
+        boxA.addEventListener('mouseover', grow)
+        function grow() {
+            boxA.style.transform = "scale(1.2)";
         }
 
-      
+        boxA.addEventListener('mouseout', shrink)
+        function shrink() {
+            boxA.style.transform = "scale(1)";
+        }
+
         boxB.addEventListener('mouseover', randomcolor)
         function randomcolor() {
-let random = Math.trunc(Math.random() * 1000000);
-boxB.style.backgroundColor = `#${random}`;
-}
-       
-        boxC.addEventListener('mouseover',imgupdate );
-        function imgupdate(){
-           
-           let random=Math.trunc(Math.random()*(0-7)+7);
-           let index=random;
-           boxC.style.background=`url(./media/img_${arr[index].img}.jpg)`;
-           content.textContent=arr[index].content
-           boxC.style.backgroundSize=`cover`;
-       }
+            let random = Math.trunc(Math.random() * 1000000);
+            boxB.style.backgroundColor = `#${random}`;
+        }
 
-        btn.addEventListener('click',animationfun)
-        function animationfun (){
-         
-         var stop =   setInterval(ani,1000)
-  
-          
+        boxC.addEventListener('mouseover', imgupdate);
+        function imgupdate() {
+            let random = Math.trunc(Math.random() * (0 - 7) + 7);
+            let index = random;
+            boxC.style.background = `url(./media/img_${arr[index].img}.jpg)`;
+            content.textContent = arr[index].content
+            boxC.style.backgroundSize = `cover`;
+        }
+
+        btn.addEventListener('click', animationfun)
+        function animationfun() {
+            btn.style.display = "none"
+            var stop = setInterval(ani, 1000)
+            function clrtime() {
+                btn.style.display = "block"
+                clearInterval(stop)
             }
-          
-        
-         function ani(){
-            function setgrow(){
-                    let boxA=document.getElementById('boxA')
-                    if(boxA.style.transform=="scale(1)"){
-                        boxA.style.transform="scale(1.2)"
-                    }
-                   else{
-                    boxA.style.transform="scale(1)"
-                   }  
-        }
-        setgrow()
-        
-        function setcolor(){
-            let random=Math.trunc(Math.random()*1000000);
-            boxB.style.backgroundColor=`#${random}`;
-        }
-        setcolor()
-
-        function imagechange(){
-           let random=Math.trunc(Math.random()*(0-7)+7);
-           let index=random;
-           boxC.style.background=`url(./media/img_${arr[index].img}.jpg)`;
-           content.textContent=arr[index].content
-           boxC.style.backgroundSize=`cover`;
-       }
-       imagechange()
-         }
-
-        btnA.addEventListener('click',removehandler)
-        function removehandler(){
-        
-       
+            btnA.addEventListener('click', clrtime)
         }
 
+        function ani() {
+            function setgrow() {
+                let boxA = document.getElementById('boxA')
+                if (boxA.style.transform == "scale(1)") {
+                    boxA.style.transform = "scale(1.2)"
+                }
+                else {
+                    boxA.style.transform = "scale(1)"
+                }
+            }
+            setgrow()
 
+            function setcolor() {
+                let random = Math.trunc(Math.random() * 1000000);
+                boxB.style.backgroundColor = `#${random}`;
+            }
+            setcolor()
 
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    
+            function imagechange() {
+                let random = Math.trunc(Math.random() * (0 - 7) + 7);
+                let index = random;
+                boxC.style.background = `url(./media/img_${arr[index].img}.jpg)`;
+                content.textContent = arr[index].content
+                boxC.style.backgroundSize = `cover`;
+            }
+            imagechange()
+        }
+
+    </script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
 </body>
 </html>

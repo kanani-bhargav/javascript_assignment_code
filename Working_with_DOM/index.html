@@ -13,8 +13,8 @@
     <div class="container-fluid">
         <div class="d-flex justify-content-around">
             <button class="btn btn-outline-success mb-3" id="thisbtn">show data</button>
-            <button class="btn btn-outline-primary mb-3" id="addbtn" data-bs-toggle="modal"
-                data-bs-target="#myModal">add data</button>
+            <button class="btn btn-outline-primary mb-3" id="addbtn" data-bs-toggle="modal" data-bs-target="#myModal"
+                onclick="updatebtn.style.display = 'none'">add data</button>
             <button class="btn btn-outline-danger mb-3" id="removebtn">remove data</button>
         </div>
         <table class="table table-dark table-striped ">
@@ -39,13 +39,11 @@
     <div class="modal fade " id="myModal">
         <div class="modal-dialog modal-xl">
             <div class="modal-content ">
-
                 <!-- Modal Header -->
                 <div class="modal-header">
                     <h4 class="modal-title">Add User</h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
-
                 <!-- Modal body -->
                 <div class="modal-body ">
                     <form>
@@ -93,26 +91,54 @@
 
                             </div>
                         </div>
-                        <button type="button" data-bs-dismiss="modal" value="submit" onclick="adddata()"
-                            class="btn btn-primary">Submit</button>
+                        <button type="button" data-bs-dismiss="modal" value="submit" id="adduser"
+                            class="btn btn-success">Submit</button>
+                        <button type="button" data-bs-dismiss="modal" value="submit" id="updatebtn"
+                            class="btn btn-primary">update</button>
                     </form>
                 </div>
-
                 <!-- Modal footer -->
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                 </div>
 
                 <script>
-                    fetch("https://jsonplaceholder.typicode.com/users").then((response) => response.json()).then((json) => {
-                        localStorage.setItem("store", JSON.stringify(json))
-                    })
-                    let data = JSON.parse(localStorage.getItem("store"))
-
                     let btn = document.getElementById("thisbtn");
-                    btn.addEventListener("click", showdata)
+                    let addbtn = document.getElementById("addbtn");
+                    let removebtn = document.getElementById("removebtn")
+                    let adduser = document.getElementById("adduser")
+                    let updatebtn = document.getElementById("updatebtn")
+                    addbtn.style.display = "none"
+                   
 
-                    function adddata() {
+                    let fetchdata = async () => {
+                        await fetch("https://jsonplaceholder.typicode.com/users").then((response) => response.json()).then((json) => {
+                            localStorage.setItem("store", JSON.stringify(json))
+                        })
+                    }
+
+                    btn.addEventListener("click", showdata)
+                    async function showdata() {
+                        await fetchdata()
+                        let data = JSON.parse(localStorage.getItem("store"))
+                        viewdata(data)
+                        thisbtn.style.display = "none"
+                        addbtn.style.display = "inline-block"
+                    }
+
+                    adduser.addEventListener("click", adddata)
+                    async function adddata() {
+                        if ((localStorage.getItem("userkey" == null) || localStorage.getItem("userkey") == undefined)) {
+                            await fetchdata()
+                            let adddata = JSON.parse(localStorage.getItem("store"))
+                            userdata(adddata)
+                        }
+                        else {
+                            let adddata = JSON.parse(localStorage.getItem("userkey"))
+                            userdata(adddata)
+                        }
+                    }
+                    function userdata(adddata) {
                         let name = document.getElementById("name").value
                         let username = document.getElementById("username").value
                         let email = document.getElementById("email").value
@@ -124,7 +150,7 @@
                         let zipcode = document.getElementById("zipcode").value
 
                         let obj = {
-                            id: (data.length + 1),
+                            id: (adddata[adddata.length - 1].id + 1),
                             name: name,
                             username: username,
                             email: email,
@@ -138,9 +164,8 @@
                             company: { name: company },
 
                         }
-                        data.push(obj);
-                        console.log(data);
-                        viewdata(data)
+                        adddata.push(obj);
+                        viewdata(adddata)
 
                         document.getElementById("name").value = ""
                         document.getElementById("username").value = ""
@@ -152,11 +177,7 @@
                         document.getElementById("street").value = ""
                         document.getElementById("zipcode").value = ""
 
-                        localStorage.setItem("store", JSON.stringify(data))
-                    }
-
-                    function showdata() {
-                        viewdata(data)
+                        localStorage.setItem("userkey", JSON.stringify(adddata))
                     }
 
                     function viewdata(input) {
@@ -178,33 +199,94 @@
                         <td>${val.website}</td>
                         <td>${val.company.name}</td>
                         <td><button class="btn btn-danger" onclick=deleteData(${val.id})>delete</button></td>
-                        <td><button class="btn btn-secondary" onclick=updateData(${val.id})>update</button></td>
+                        <td><button class="btn btn-secondary" onclick=updateData(${val.id}) data-bs-toggle="modal"
+                data-bs-target="#myModal" >update</button></td>
                         </tr>
                         `
                             document.getElementById("record").innerHTML = tbl
                         })
                     }
 
-
                     function deleteData(id) {
-                        let data = JSON.parse(localStorage.getItem("store"))
-                        for (let i in data) {
-                            if (data[i].id == id) {
-                                data.splice(i, 1)
+                        if ((localStorage.getItem("userkey" == null) || localStorage.getItem("userkey") == undefined)) {
+                            let data = JSON.parse(localStorage.getItem("store"))
+                            for (let i in data) {
+                                if (data[i].id == id) {
+                                    data.splice(i, 1)
+                                }
                             }
+                            localStorage.setItem("store", JSON.stringify(data))
+                            let deleteitem = JSON.parse(localStorage.getItem("store"))
+                            viewdata(deleteitem)
+                            localStorage.setItem("userkey", JSON.stringify(data))
                         }
-                        localStorage.setItem("store", JSON.stringify(data))
-                        let deleteitem = JSON.parse(localStorage.getItem("store"))
-                        viewdata(deleteitem)
+                        else {
+                            let data = JSON.parse(localStorage.getItem("userkey"))
+                            for (let i in data) {
+                                if (data[i].id == id) {
+                                    data.splice(i, 1)
+                                }
+                            }
+                            localStorage.setItem("userkey", JSON.stringify(data))
+                            let deleteitem = JSON.parse(localStorage.getItem("userkey"))
+                            viewdata(deleteitem)
+                        }
                     }
 
-                    let removebtn = document.getElementById("removebtn")
-                    removebtn.addEventListener("click", removehandler)
-                    function removehandler() {
-                        // btn.removeEventListener("click",showdata)
-                        let allremove = localStorage.removeItem("store");
-                        document.getElementById("record").innerHTML = ""
+                  async  function updateData(id) {
+                        let userid=id
+                        // console.log(userid);
+                        adduser.style.display = "none"
+                        updatebtn.style.display = "inline-block"
+                        let data = JSON.parse(localStorage.getItem("userkey"))
+                        for (let i in data) {
+                            if (data[i].id == userid) {
+                                document.getElementById("name").value = data[i].name
+                                document.getElementById("username").value = data[i].username
+                                document.getElementById("email").value = data[i].email
+                                document.getElementById("phone").value = data[i].phone
+                                document.getElementById("web").value = data[i].website
+                                document.getElementById("company").value = data[i].company.name
+                                document.getElementById("city").value = data[i].address.city
+                                document.getElementById("street").value = data[i].address.street
+                                document.getElementById("zipcode").value = data[i].address.zipcode
+                                
+                            }
+                            
+                        }
+                        updatebtn.addEventListener("click",updateuser(id))
                     }
+                    function updateuser(id) {
+                                let userid=id
+                              let udata = JSON.parse(localStorage.getItem("userkey"))
+
+                            for (let i in udata) {
+                                if (udata[i].id == userid) {
+                                    console.log(userid);
+                                    udata[i].name =document.getElementById("name").value
+                                    udata[i].username=document.getElementById("username").value
+                                    udata[i].email=document.getElementById("email").value
+                                    udata[i].phone=document.getElementById("phone").value
+                                    udata[i].website=document.getElementById("web").value
+                                    udata[i].company.name= document.getElementById("company").value
+                                    udata[i].address.city=document.getElementById("city").value
+                                    udata[i].address.street=document.getElementById("street").value
+                                    udata[i].address.zipcode=document.getElementById("zipcode").value
+                                    console.log(udata[i].name);
+
+                              
+                                }
+                            }
+                            localStorage.setItem("userkey", JSON.stringify(udata))
+                            let newdata = JSON.parse(localStorage.getItem("userkey"))
+                            viewdata(newdata)
+                        }
+                        removebtn.addEventListener("click", removehandler)
+                        function removehandler() {
+                            let allremove = localStorage.removeItem("store");
+                            document.getElementById("record").innerHTML = ""
+                        }
+
                 </script>
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
                     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"

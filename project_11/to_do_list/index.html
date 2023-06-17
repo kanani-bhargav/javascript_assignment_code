@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do list</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <h1 class="head h3 pb-3 mb-0 text-center text-light">TO DO LIST</h1>
+            <form action="">
+                <div class="row text-light justify-content-center ">
+                    <div class="col-8">
+                        <input type="text"
+                            class="form-control border-0  border-bottom border-light rounded-0 text-light"
+                            placeholder="Add New Task" id="task_des">
+                    </div>
+                    <div class="col-auto">
+                        <button type="button" class="btn rounded-circle" id="task_item"><i
+                                class="fa-solid fa-plus"></i></button>
+                    </div>
+                </div>
+            </form>
+
+            <table class="table mt-5 ">
+                <tbody id="record">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script>
+        task_btn = document.getElementById("task_item")
+        let do_task = [];
+        task_btn.addEventListener("click", adddata)
+
+        function adddata() {
+            let task_des = document.getElementById("task_des")
+
+            let itemdata = {
+                id: Math.floor(Math.random() * 10000000000),
+                task: task_des.value
+            }
+            do_task.push(itemdata)
+            localStorage.setItem("to_do", JSON.stringify(do_task))
+
+            viewdata()
+            task_des.value = ""
+        }
+
+        function viewdata() {
+            let data = JSON.parse(localStorage.getItem("to_do"));
+            let tbl = ""
+            data.map((val) => {
+                tbl += `
+                        <tr >
+                            <td class="text-light my-5"><input type="checkbox" name="check" class="d-inline-block ms-3 align-middle"><span class="px-3">${val.task}</span></td>
+                            <td class="text-end"><button class="btn del" onclick="deletetask(${val.id})"><i class="fa-solid fa-trash-can text-danger"> </i></button>
+                                <button class="btn bg bg-success text-light undo"  >Undo</button>    
+                            </td>
+                        </tr>
+                `
+            })
+            document.getElementById("record").innerHTML = tbl
+        }
+
+        function deletetask(id) {
+            let data = JSON.parse(localStorage.getItem("to_do"));
+            let del_index = data.findIndex((val) => val.id === id);
+            
+            let delbtn = document.querySelectorAll(".btn.del")
+            let undobtn = document.querySelectorAll(".undo")
+            delbtn[del_index].style.display = "none"
+            undobtn[del_index].style.display = "block"
+            let stop = setTimeout(untask, 3000)
+            function untask() {
+                data.map((val, ind) => {
+                    if (val.id == id) {
+                        data.splice(ind, 1)
+                        localStorage.setItem("to_do", JSON.stringify(data))
+                    }
+                })
+                viewdata()
+            }
+            let ok = undobtn[del_index].addEventListener("click", function () {
+                clearTimeout(stop)
+                delbtn[del_index].style.display = "inline-block"
+                undobtn[del_index].style.display = "none"
+            })
+        }
+
+    </script>
+</body>
+
+</html>

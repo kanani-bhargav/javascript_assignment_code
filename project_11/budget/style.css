@@ -1,0 +1,209 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: #E0EAFC;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #CFDEF3, #E0EAFC);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.wrapper {
+    width: 90%;
+    font-size: 16px;
+    max-width: 43.75em;
+    margin: 1em auto;
+
+}
+
+.container {
+    width: 100%;
+}
+
+.sub-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3em;
+
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.flex-space {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wrapper h3 {
+    color: #000;
+    font-weight: 500;
+    margin-bottom: 0.6em;
+}
+
+.container input {
+    display: block;
+    width: 100%;
+    padding: 0.5em 0.3em;
+    border: 1px solid #d0d0d0;
+    border-radius: 0.3em;
+    color: #27282d;
+    outline: none;
+    font-weight: 400;
+    margin-bottom: 0.6em;
+}
+
+.container input:focus {
+    border-color: #587ef4;
+}
+
+.total-amount-container,
+.user-amount-container {
+    background: #E0EAFC;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #CFDEF3, #E0EAFC);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+    padding: 1.25em 0.9em;
+    border-radius: 0.3em;
+    box-shadow: 0 0.6em 1.2em rgba(28, 0, 80, 0.2);
+}
+
+.output-container {
+    background: #232526;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+    color: #ffffff;
+    border-radius: 0.3em;
+    box-shadow: 0 0.6em 1.5em rgba(0, 0, 0, 0.2);
+    margin: 2em 0;
+    padding: 1.2em;
+}
+
+.output-container p {
+    font-weight: 500;
+    margin-bottom: 0.6em;
+}
+
+.output-container span {
+    display: block;
+    text-align: center;
+    font-weight: 400;
+    color: #e5e5e5;
+}
+
+.submit {
+    font-size: 1em;
+    margin-top: 0.8em;
+    background: #232526;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+    border: none;
+    outline: none;
+    color: #ffffff;
+    padding: 0.6em 1.2em;
+    border-radius: 0.3em;
+    cursor: pointer;
+}
+
+.list {
+    background: #E0EAFC;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #CFDEF3, #E0EAFC);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #CFDEF3, #E0EAFC);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    padding: 1.8em 1.2em;
+    box-shadow: 0 0.6em 1.2em rgba(28, 0, 80, 0.2);
+    border-radius: 0.6em;
+}
+
+.sublist-content {
+    width: 100%;
+    border-left: 0.3em solid #587ef4;
+    margin-bottom: 0.6em;
+    padding: 0.5em 1em;
+    display: grid;
+    grid-template-columns: 3fr 2fr 1fr 1fr;
+}
+
+.product {
+    font-weight: 500;
+    color: #363d55;
+}
+
+.amount {
+    color: #414a67;
+    margin-left: 20%;
+}
+
+.icons-container {
+    width: 5em;
+    margin: 1.2em;
+    align-items: center;
+}
+
+.hide {
+    display: none;
+}
+
+.error {
+    color: #ff465a;
+}
+
+.edit {
+    margin-left: auto;
+}
+
+.edit,
+.delete {
+    background: transparent;
+    cursor: pointer;
+    margin-right: 1.5em;
+    border: none;
+    color: #587ef4;
+}
+
+input {
+    background: transparent;
+    border: none !important;
+    border-bottom: 2px solid #3f4c6b !important;
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border-radius: 0 !important;
+    font-weight: bolder;
+}
+.bg-secondary{
+    padding: 10px 0;
+    color: white;
+    background-color: rgb(44, 46, 47) !important; /* fallback for old browsers */
+
+    
+}
+
+@media screen and (max-width: 600px) {
+    .wrapper {
+        font-size: 14px;
+    }
+
+    .sub-container {
+        grid-template-columns: 1fr;
+        gap: 1em;
+    }
+}

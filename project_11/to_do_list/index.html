@@ -16,6 +16,7 @@
 
 <body>
     <div class="container">
+        <!-- add item section -->
         <div class="wrapper">
             <h1 class="head h3 pb-3 mb-0 text-center text-light">TO DO LIST</h1>
             <form action="">
@@ -30,8 +31,10 @@
                                 class="fa-solid fa-plus"></i></button>
                     </div>
                 </div>
+                <div id="err_mg" class="text-danger text-center"></div>
             </form>
 
+            <!-- show data in table formate -->
             <table class="table mt-5 ">
                 <tbody id="record">
                 </tbody>
@@ -44,24 +47,29 @@
     <script>
         task_btn = document.getElementById("task_item")
         let do_task = [];
-        task_btn.addEventListener("click", adddata)
+        task_btn.addEventListener("click", adddata)  //onclick function call addddata
 
         function adddata() {
             let task_des = document.getElementById("task_des")
+            if (task_des.value != "") {
+                document.getElementById("err_mg").innerHTML = ""
+                let itemdata = {            //make object with id and description
+                    id: Math.floor(Math.random() * 10000000000),
+                    task: task_des.value
+                }
+                do_task.push(itemdata)
+                localStorage.setItem("to_do", JSON.stringify(do_task))   //store array of objects to local storage
 
-            let itemdata = {
-                id: Math.floor(Math.random() * 10000000000),
-                task: task_des.value
+                viewdata()    //display view data
+                task_des.value = ""
             }
-            do_task.push(itemdata)
-            localStorage.setItem("to_do", JSON.stringify(do_task))
-
-            viewdata()
-            task_des.value = ""
+            else {
+                document.getElementById("err_mg").innerHTML = "input should not be empty"
+            }
         }
 
         function viewdata() {
-            let data = JSON.parse(localStorage.getItem("to_do"));
+            let data = JSON.parse(localStorage.getItem("to_do"));   // get data from local storage
             let tbl = ""
             data.map((val) => {
                 tbl += `
@@ -76,25 +84,25 @@
             document.getElementById("record").innerHTML = tbl
         }
 
-        function deletetask(id) {
-            let data = JSON.parse(localStorage.getItem("to_do"));
-            let del_index = data.findIndex((val) => val.id === id);
-            
+        function deletetask(id) {     ///delete task from local storage using id parameter
+            let data = JSON.parse(localStorage.getItem("to_do"));   // get data from local storage
+            let del_index = data.findIndex((val) => val.id === id); // find index of data wih help of id
+
             let delbtn = document.querySelectorAll(".btn.del")
             let undobtn = document.querySelectorAll(".undo")
             delbtn[del_index].style.display = "none"
             undobtn[del_index].style.display = "block"
-            let stop = setTimeout(untask, 3000)
+            let stop = setTimeout(untask, 3000)    //some time after function invoke untask 
             function untask() {
-                data.map((val, ind) => {
+                data.map((val, ind) => {          //remove object from data
                     if (val.id == id) {
                         data.splice(ind, 1)
                         localStorage.setItem("to_do", JSON.stringify(data))
                     }
                 })
-                viewdata()
+                viewdata()  //display view data
             }
-            let ok = undobtn[del_index].addEventListener("click", function () {
+            let ok = undobtn[del_index].addEventListener("click", function () {  //clear timer when click event happens to stop running untask function
                 clearTimeout(stop)
                 delbtn[del_index].style.display = "inline-block"
                 undobtn[del_index].style.display = "none"

@@ -5,7 +5,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 button {
     height: 60px;
     margin: 10px 5px;
@@ -14,6 +13,7 @@ button {
     font-family: 'Kanit', sans-serif;
     border: none;
 }
+
 .wrapper {
     max-width: max-content !important;
     margin: 0 auto;
@@ -29,19 +29,24 @@ button {
 .color-1 {
     background-color: rgba(150, 150, 150, 1);
 }
+.color-1:hover {
+    color: #FFF !important;
+}
 .color-2 {
     background-color: rgb(250, 140, 6);
     color: white;
 }
 .color-3 {
     background-color: rgb(49, 49, 49);
-    color: white;
+    color: gainsboro;
     border: none;
 }
+.color-3:hover {
+    color: white !important;
+}
 button:focus {
-    border: none !important;
     box-shadow: none !important;
-    outline: none !important;
+    color: #FFF !important;
 }
 #inval{
     text-align: end;
@@ -67,6 +72,8 @@ button:focus {
 }
 #inval:focus{
     box-shadow: none;
+    color: #000 !important;
+    background-color: darkgray !important;
 }
 .message{
     position: relative;

@@ -15,6 +15,8 @@
 </head>
 
 <body>
+
+    <!-- calculator ui section -->
     <div class="wrapper">
         <div class="letcontainer">
             <form action="">
@@ -74,7 +76,7 @@
 
         let allbtn = document.getElementsByTagName("button")
 
-        for (let btn of allbtn) {
+        for (let btn of allbtn) {    //add multiple event for remove marqueetag display
             btn.addEventListener("mousedown", multifun)
         }
         let equal_btn = document.getElementById("equal_btn")
@@ -83,7 +85,7 @@
 
         inval.addEventListener("keyup", onenter)
         inval.addEventListener("keypress", downenter)
-        inval.addEventListener("focus", focusmark)
+        inval.addEventListener("focus", focusmark) //focus event remove marqueetag display
 
         function multifun() {
             marqueetag.style.display = "none";
@@ -93,18 +95,18 @@
             show.value = inval.value
             inval.value = eval(inval.value)
         }
-        function onenter(event) {
+        function onenter(event) {    //on enter event handler executed answer 
             if (event.keyCode === 13) {
                 inval.value = eval(inval.value)
             }
         }
-        function downenter(event) {
+        function downenter(event) {  //on enter event handler executed answer and assign value to show value
             if (event.keyCode === 13) {
                 show.value = inval.value
                 inval.value = eval(inval.value)
             }
         }
-        function focusmark() {
+        function focusmark() {  //on function invoke marqueetag display remove
             marqueetag.style.display = "none"
         }
         function clearinput() {

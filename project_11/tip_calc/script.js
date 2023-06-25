@@ -8,7 +8,6 @@ billAmount.addEventListener("change",calculateTip);
 
 
 function calculateTip(){
-  
     let bill = parseFloat(billAmount.value);
     let tipPercent = document.getElementById("tip").value;
     let noOfPeople = document.getElementById("no-of-people").value;
@@ -21,13 +20,12 @@ function calculateTip(){
     let tipPerPerson = (totalTip / noOfPeople).toFixed(2);
     let totalPerPerson = (total / noOfPeople).toFixed(2);
 
-    document.getElementById("tip-amount").textContent = `\$ ${totalTip}`;
-    document.getElementById("total-amount").textContent = `\$ ${total}`;
+    document.getElementById("tip-amount").innerHTML = "$ " + totalTip;
+    document.getElementById("total-amount").innerHTML = "$ " + total;
     
-    document.getElementById("tip-percent").textContent = `${tipPercent}%`;
-    document.getElementById("split-num").textContent = noOfPeople;
+    document.getElementById("tip-percent").innerHTML = tipPercent + " %"
+    document.getElementById("split-num").innerHTML = noOfPeople;
 
-    document.getElementById("tip-per-person").textContent = `\$ ${tipPerPerson}`;
-    document.getElementById("total-per-person").textContent = `\$ ${totalPerPerson}`;
+    document.getElementById("tip-per-person").innerHTML = "$ " + tipPerPerson;
+    document.getElementById("total-per-person").innerHTML = "$ " + totalPerPerson;
 }
-// calculateTip();

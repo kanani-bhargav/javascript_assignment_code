@@ -189,6 +189,10 @@ input {
     border-radius: 0 !important;
     font-weight: bolder;
 }
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+}
 .bg-secondary{
     padding: 10px 0;
     color: white;
